@@ -26,7 +26,7 @@ module.exports = {
 			'always'
 		]
 	},
-  "parserOptions": {
-    "sourceType": "module"
-  }
+	'parserOptions': {
+		'sourceType': 'module'
+	}
 };
