@@ -11,7 +11,8 @@ dotenv.config();
 
 const client = prismic.createClient(process.env.PRISMIC_ENDPOINT, { fetch })
 const init = async () => {
-  
+  const prismicDoc = await client.get();
+  return prismicDoc;
 }
 
 app.set('views', path.resolve('views'));
@@ -21,8 +22,18 @@ app.get('/', (req, res) => {
 	res.render('pages/home');
 });
 
-app.get('/about', (req, res) => {
-	res.render('pages/about');
+app.get('/about', async (req, res) => {
+  const prismicData = await init();
+  const aboutPages = prismicData.results.filter(doc => doc.type === 'about' || doc.type === 'metadata');
+  if(aboutPages.length > 0){
+    const results = aboutPages;
+    const about = results.find(item => item.type ==='about');
+    const meta = results.find(item => item.type ==='metadata');
+    console.log(about, meta);
+    res.render('pages/about', { });
+  } else {
+    res.status(404).send('Page not Found');
+  }
 });
 
 app.get('/detail/:uid', (req, res) => {
