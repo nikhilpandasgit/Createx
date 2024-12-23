@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "creative-website",
   "main": "index.js",
+  "type" : "module",
   "scripts": {
-    "frontend:build": "webpack --config webpack.config.build.js",
-    "frontend:development": "webpack serve --progress --config webpack.config.development.js",
+    "frontend:build": "webpack --config webpack.config.build.cjs",
+    "frontend:development": "webpack serve --progress --config webpack.config.development.cjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "backend:build": "node app.js",
@@ -46,8 +47,12 @@
     "webpack-merge": "^6.0.1"
   },
   "dependencies": {
+    "@prismicio/client": "^7.13.1",
+    "dotenv": "^16.4.7",
     "express": "^4.21.1",
+    "node-fetch": "^3.3.2",
     "nodemon": "^3.1.7",
+    "prismic-dom": "^2.2.7",
     "pug": "^3.0.3"
   }
 }
