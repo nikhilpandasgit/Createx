@@ -1,6 +1,6 @@
 import * as prismic from '@prismicio/client';
 import fetch from 'node-fetch';
-import dotenv from 'dotenv';
+import dotenv from 'dotenv-safe';
 
 dotenv.config();
 const client = prismic.createClient(process.env.PRISMIC_ENDPOINT, { fetch });

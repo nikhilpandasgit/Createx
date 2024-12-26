@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+import dotenv from 'dotenv-safe';
 import { fileURLToPath } from 'url';
 import { init } from './utils/prismicByType.js';
 import path from 'path';
@@ -8,6 +8,8 @@ import NodeCache from 'node-cache';
 import express from 'express';
 import homeRouter from './routes/home.js';
 import aboutRouter from './routes/about.js';
+import detailRouter from './routes/detail.js';
+import collectionsRouter from './routes/collections.js';
 
 dotenv.config();
 
@@ -35,39 +37,9 @@ app.use( async(req, res, next) => {
 
 app.use('/', homeRouter);
 app.use('/', aboutRouter);
-
-
-app.get('/detail/:uid', (req, res) => {
-	res.render('pages/detail', {
-  });
-});
-
-app.get('/collections', (req, res) => {
-	res.render('pages/collections', {
-
-  });
-});
+app.use('/', detailRouter);
+app.use('/', collectionsRouter);
 
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);
 });
-
-
-// const prismic = require('@prismicio/client');
-// const PrismicDOM = require('prismic-dom');
-
-// const handleLinkResolver = doc => {
-
-//   return '/'
-// }
-
-// app.use((req, res, next) => {
-//   res.locals.ctx = {
-//     endpoint: process.env.PRISMIC_ENDPOINT,
-//     linkResolver: handleLinkResolver
-//   }
-
-//   res.locals.PrismicDOM = PrismicDOM;
-//   next();
-// })
-
