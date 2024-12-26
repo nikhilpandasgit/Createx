@@ -1,47 +1,51 @@
 import dotenv from 'dotenv';
-import * as prismic from '@prismicio/client';
-import fetch from 'node-fetch';
-import express from 'express';
+import { fileURLToPath } from 'url';
+import { init } from './utils/prismicByType.js';
 import path from 'path';
-const port = 3000;
+import morgan from 'morgan';
+import fs from 'fs';
+import NodeCache from 'node-cache';
+import express from 'express';
+import homeRouter from './routes/home.js';
+import aboutRouter from './routes/about.js';
 
-// const __dirname = path.dirname(new URL(import.meta.url).pathname);
-const app = express();
 dotenv.config();
 
-const client = prismic.createClient(process.env.PRISMIC_ENDPOINT, { fetch })
-const init = async () => {
-  const prismicDoc = await client.get();
-  return prismicDoc;
-}
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const logDirectory = path.join(__dirname, 'logs');
+const port = 3000;
+const app = express();
+const cache = new NodeCache({ stdTTL: 300});
+const accessLogStream = fs.createWriteStream(path.join(logDirectory, 'access.log'), { flags: 'a' });
 
 app.set('views', path.resolve('views'));
 app.set('view engine', 'pug');
+app.use(morgan('combined', { stream: accessLogStream }));
 
-app.get('/', (req, res) => {
-	res.render('pages/home');
-});
-
-app.get('/about', async (req, res) => {
-  const prismicData = await init();
-  const aboutPages = prismicData.results.filter(doc => doc.type === 'about' || doc.type === 'metadata');
-  if(aboutPages.length > 0){
-    const results = aboutPages;
-    const about = results.find(item => item.type ==='about');
-    const meta = results.find(item => item.type ==='metadata');
-    console.log(about, meta);
-    res.render('pages/about', { });
-  } else {
-    res.status(404).send('Page not Found');
+app.use( async(req, res, next) => {
+  let meta = cache.get('meta');
+  if(!meta){
+    const page = await init('metadata');
+    meta = page.results[0];
+    cache.set('meta', meta);
   }
+  res.locals.meta = meta;
+  next();
 });
+
+app.use('/', homeRouter);
+app.use('/', aboutRouter);
+
 
 app.get('/detail/:uid', (req, res) => {
-	res.render('pages/detail');
+	res.render('pages/detail', {
+  });
 });
 
 app.get('/collections', (req, res) => {
-	res.render('pages/collections');
+	res.render('pages/collections', {
+
+  });
 });
 
 app.listen(port, () => {
