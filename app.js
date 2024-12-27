@@ -10,6 +10,8 @@ import homeRouter from './routes/home.js';
 import aboutRouter from './routes/about.js';
 import detailRouter from './routes/detail.js';
 import collectionsRouter from './routes/collections.js';
+// import PrismicDOM from 'prismic-dom';
+import * as prismicH from '@prismicio/helpers';
 
 dotenv.config();
 
@@ -32,6 +34,10 @@ app.use( async(req, res, next) => {
     cache.set('meta', meta);
   }
   res.locals.meta = meta;
+  res.locals.ctx = {
+    endpoint: process.env.PRISMIC_ENDPOINT
+  };
+  res.locals.prismicH = prismicH;
   next();
 });
 

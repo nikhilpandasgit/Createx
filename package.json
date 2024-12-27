@@ -48,13 +48,13 @@
   },
   "dependencies": {
     "@prismicio/client": "^7.13.1",
+    "@prismicio/helpers": "^2.0.0",
     "dotenv-safe": "^9.1.0",
     "express": "^4.21.1",
     "morgan": "^1.10.0",
     "node-cache": "^5.1.2",
     "node-fetch": "^3.3.2",
     "nodemon": "^3.1.7",
-    "prismic-dom": "^2.2.7",
     "pug": "^3.0.3"
   }
 }
