@@ -1,6 +1,6 @@
 import dotenv from 'dotenv-safe';
 import { fileURLToPath } from 'url';
-import { init } from './utils/prismicByType.js';
+import { init } from './utils/prismic/prismicByType.js';
 import path from 'path';
 import morgan from 'morgan';
 import fs from 'fs';
@@ -38,6 +38,10 @@ app.use( async(req, res, next) => {
     endpoint: process.env.PRISMIC_ENDPOINT
   };
   res.locals.prismicH = prismicH;
+  res.locals.Numbers = index => {
+    return index == 0 ? 'One' : index == 1 ? "Two" : index == 2 ? 'Three' : index == 3 ? 'Four': '' ;
+  }
+  
   next();
 });
 
@@ -47,5 +51,5 @@ app.use('/', detailRouter);
 app.use('/', collectionsRouter);
 
 app.listen(port, () => {
-	console.log(`Example app listening on port ${port}`);
+	console.log(`App listening on port ${port}`);
 });

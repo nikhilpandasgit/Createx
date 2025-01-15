@@ -1,5 +1,5 @@
 import express from 'express';
-import { init } from '../utils/prismicByType.js'
+import { init } from '../utils/prismic/prismicByType.js'
 
 const router = express.Router();
 
@@ -12,8 +12,6 @@ router.get('/about', async (req, res) => {
         slice.primary.description = slice.primary.description.replace(/\n/g, '<br>')
       }
     })
-    const about_high = about.data.body.filter(slice => slice.slice_type == 'gallery')
-    console.log(about_high[0].items);
     res.render('pages/about', {
       about, meta : res.locals.meta
      });

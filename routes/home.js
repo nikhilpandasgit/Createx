@@ -1,5 +1,5 @@
 import express from 'express';
-import { init } from '../utils/prismicByType.js';
+import { init } from '../utils/prismic/prismicByType.js';
 
 const router = express.Router();
 
