@@ -13,7 +13,7 @@ const client = prismic.createClient(process.env.PRISMIC_ENDPOINT, { fetch });
  * @returns {Promise<Object>} - The fetched document
  */
 
-export const initUid = async (type, uid, options={}) => {
+export const initUid = async (type, uid, options = {}) => {
   const prismicDoc = await client.getByUID(type, uid, options);
   return prismicDoc;
 }
