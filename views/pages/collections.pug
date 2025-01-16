@@ -15,7 +15,7 @@ block content
         .collections_gallery_wrapper
           each collection in collections
             each product in collection.data.products
-              a.collections_gallery_link
+              a.collections_gallery_link(href=Link(product.products_product))
                 figure.collections_gallery_media
                   img.collections_gallery_media_image(alt=product.products_product.data.product.alt src=product.products_product.data.product.url)
 

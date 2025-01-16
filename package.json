@@ -49,10 +49,10 @@
   "dependencies": {
     "@prismicio/client": "^7.13.1",
     "@prismicio/helpers": "^2.0.0",
-    "body-parser": "^1.20.3",
     "dotenv-safe": "^9.1.0",
     "errorhandler": "^1.5.1",
     "express": "^4.21.1",
+    "helmet": "^8.0.0",
     "method-override": "^3.0.0",
     "morgan": "^1.10.0",
     "node-cache": "^5.1.2",

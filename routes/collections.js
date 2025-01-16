@@ -7,7 +7,7 @@ router.get('/collections', async (req, res) => {
   const { results: collections } = await init('collection', {
     fetchLinks: 'product.product'
   });
-  const { results: home } = await client.getByType('home');
+  const { results: home } = await init('home');
   res.render('pages/collections', { collections, meta: res.locals.meta, home: home[0], preloader: res.locals.preloader });
 });
 
