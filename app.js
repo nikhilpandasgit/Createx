@@ -29,14 +29,13 @@ app.use(morgan('dev', { stream: accessLogStream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride());
-app.use(helmet(
-  helmet.contentSecurityPolicy({
-    useDefaults: true,
+app.use(helmet({
+  contentSecurityPolicy: {
     directives: {
-      "img-src": ["'self'", "https: data:"]
+      "img-src": ["'self'", "https:"]
     }
-  })
-));
+  }
+}));
 
 app.use(globalMiddleware(cache));
 

@@ -1,11 +1,9 @@
 nav.navigation
-  .navigation_wrapper
-    a.navigation_link(href="")
-      | Createx
+  .navigation__wrapper
+    a.navigation__link(href="")=meta.data.title
+      svg.navigation__link__icon
 
-      svg.navigation_link_icon
-
-    ul.navigation_list
+    ul.navigation__list
     each item in navigation.data.list
-      li.navigation_list_item
-        a.navigation_list_link(href=Link(item.link))=item.text
+      li.navigation__list__item
+        a.navigation__list__link(href=Link(item.link))=item.text

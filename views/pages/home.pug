@@ -5,15 +5,18 @@ block variables
 
 block content
   .home
-    .home_wrapper
-      .home_titles
+    .home__wrapper
+      .home__titles
         each collection, index in collections
-          .home_titles_label=`${home.data.collection} ${Numbers(index)}`
-          .home_titles_title=`${collection.data.title}`
+          .home__titles__label
+            .home__titles__label__text=`${home.data.collection} ${Numbers(index)}`
 
-      .home_gallery
+          .home__titles__title
+            .home__titles__title__text=collection.data.title
+
+      .home__gallery
       each media in home.data.gallery
-        figure.home_gallery_media
-          img.home_gallery_media_image(alt=media.image.alt src=media.image.url)
+        figure.home__gallery__media
+          img.home__gallery__media__image(alt=media.image.alt src=media.image.url)
 
-      a(href="/collections")=home.data.button
+      a.home__link(href="/collections")=home.data.button
