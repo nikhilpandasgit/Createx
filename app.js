@@ -25,6 +25,7 @@ const accessLogStream = fs.createWriteStream(path.join(logDirectory, 'access.log
 
 app.set('views', path.resolve('views'));
 app.set('view engine', 'pug');
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev', { stream: accessLogStream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

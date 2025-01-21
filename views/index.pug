@@ -4,7 +4,7 @@ doctype html
 html(lang="en")
   head
     meta(charset="UTF-8")
-    meta(name="viewport" content="width=device-width, inital-scale=1.0")
+    meta(name="viewport" content="width=device-width")
 
     base(href="/")
     title=meta.data.title
@@ -31,7 +31,7 @@ html(lang="en")
     meta(name="twitter:description" content=meta.data.description)
     meta(name="twitter:image" content=meta.data.image ? meta.data.image.url : '')
 
-    link(href="main.css" rel="stylesheet")
+    link(href="styles.css" rel="stylesheet")
 
   body
     include ./partials/preloader

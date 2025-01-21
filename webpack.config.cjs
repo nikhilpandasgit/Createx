@@ -15,6 +15,9 @@ const dirStyles = path.join(__dirname, 'styles');
 const dirNode = 'node_modules';
 
 module.exports = {
+  stats: {
+    warnings: false
+  },
 	entry: {
 		main: path.join(dirApp, 'index.js'),
 		styles: path.join(dirStyles, 'index.scss')
@@ -41,8 +44,8 @@ module.exports = {
 		}),
 
 		new MiniCssExtractPlugin({
-			filename: 'css/[name].css',
-			chunkFilename: 'css/[id].css'
+			filename: '[name].css',
+			chunkFilename: '[id].css'
 		}),
 
 		new ImageMinimizerPlugin({
@@ -91,7 +94,12 @@ module.exports = {
 						loader: 'postcss-loader',
 					},
 					{
-						loader: 'sass-loader', // Add sass-loader to handle SCSS
+						loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                quietDeps: true, // Suppress deprecation warnings from dependencies
+              },
+            },
 					},
 				],
 			},
@@ -99,7 +107,7 @@ module.exports = {
 				test: /\.(jpe?g|png|gif|svg|woff2?|fnt|webp)$/,
 				type: 'asset/resource',
 				generator: {
-					filename: 'images/[hash].[ext]'
+					filename: 'fonts/[hash][ext]'
 				}
 			},
 			{
@@ -143,4 +151,4 @@ module.exports = {
 			}),
 		],
 	},
-};  
+};
