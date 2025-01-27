@@ -1,7 +1,5 @@
-@use 'utils/variables.scss' as *;
-@use 'utils/functions';
-@use 'utils/mixins';
-@use 'utils/vendors';
+@use 'shared/description';
+@use 'shared/titles';
 
 @use 'base/fonts';
 @use 'base/reset';
