@@ -1,7 +1,5 @@
-@use 'utils/variables.scss' as *;
-@use '../shared/description.scss' as *;
-@use '../utils/responsive' as *;
-
+@use '../globals' as *;
+@use '../shared' as *;
 
 body{
   @extend %description-16;

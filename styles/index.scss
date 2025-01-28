@@ -1,6 +1,3 @@
-@use 'shared/description';
-@use 'shared/titles';
-
 @use 'base/fonts';
 @use 'base/reset';
 @use 'base/base';
@@ -11,7 +8,7 @@
 @use 'pages/about/highlight';
 
 @use 'pages/collections/collections';
-
 @use 'pages/details/details';
-
 @use 'pages/home/home';
+
+@use 'components/preloader';
