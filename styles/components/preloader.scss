@@ -3,12 +3,14 @@
 
 .preloader{
   @extend %cover;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @extend %center;
+  
+  font-family: $font-george-x;
+  background: $color-contessa;
   text-align: center;
+  display: none;
 }
+
 .preloader__text{
   @extend %title-53;
 
@@ -16,8 +18,10 @@
 }
 
 .preloader__number{
-  position: absolute;
-  bottom: 0;
+  @extend %description-14;
+
+  bottom: 7.3rem;
   left: 50%;
+  position: absolute;
   transform: translateX(-50%);
 }

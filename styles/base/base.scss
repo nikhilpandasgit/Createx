@@ -1,6 +1,10 @@
 @use '../globals' as *;
 @use '../shared' as *;
 
+html{
+  font-size: calc(100vw / 1920 * 10);
+}
+
 body{
   @extend %description-16;
   font-family: $font-suisse-bp;

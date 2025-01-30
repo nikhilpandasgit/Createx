@@ -1,6 +1,12 @@
-@use 'base/fonts';
 @use 'base/reset';
+
+@use 'globals' as *;
+@use 'shared' as *;
+
+@use 'base/fonts';
 @use 'base/base';
+
+@use 'components/preloader';
 
 @use 'pages/about/about';
 @use 'pages/about/content';
@@ -10,5 +16,3 @@
 @use 'pages/collections/collections';
 @use 'pages/details/details';
 @use 'pages/home/home';
-
-@use 'components/preloader';
