@@ -14,7 +14,7 @@ block content
       .detail_information
         p.detail__information__collection=`${product.data.collection.data.title} ${home.data.collection}`
 
-        h1.detail__information__title=product.title
+        h1.detail__information__title=product.data.title
 
         .detail__information__content
           .detail__information__highlights
@@ -26,18 +26,12 @@ block content
                   else
                     use(xlink:href="sprite-default")
 
-                span.detail__information__highlight__text=highlight.highlights_text
+                span.detail__information__highlight__text!=highlight.highlights_text.replace(/\n/g, '<br>')
 
           .detail__information__list
             each item in product.data.information
               p.detail__information__item
                 strong.detail__information__item__title=item.information_label
-                span.detail__information__item__description=item.information_description
+                span.detail__information__item__description!=item.information_description
 
           a.detail__information__link(href=product.data.link_url.url target="_blank")=product.data.link_text
-
-
-
-
-
-
