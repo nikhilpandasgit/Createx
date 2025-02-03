@@ -6,7 +6,7 @@ html{
 }
 
 body{
-  @extend %description-16;
+  @extend %description-18;
   font-family: $font-suisse-bp;
 
   @include media('<=phone') {

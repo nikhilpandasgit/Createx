@@ -1,10 +1,6 @@
 @use '../../globals.scss' as *;
 @use '../../shared.scss' as *;
 
-.collections__title{
-
-}
-
 .detail{
   @extend %cover;
   @extend %center;
@@ -30,23 +26,24 @@
 }
 
 .detail_information{
-
+  padding-left: 8.2rem;
 }
 
 .detail__information__collection{
   @extend %description-14;
-  text-transform: capitalize;
-  margin-bottom: 3.7rem;
+  text-transform: uppercase;
+  margin-bottom: 4rem;
+  overflow: hidden;
 }
 
 .detail__information__title{
   @extend %title-120;
+
   max-width: 60rem;
-  line-height: 0.8;
 }
 
 .detail__information__content{
-  padding-left: 10rem;
+  padding-left: 18rem;
 }
 
 .detail__information__highlights{
@@ -54,8 +51,12 @@
 }
 
 .detail__information__highlight{
-  display: flex;
   align-items: center;
+  display: flex;
+
+  &:not(:first-child) {
+    margin-top: 4rem;
+  }
 }
 
 .detail__information__highlight__icon{
@@ -63,19 +64,26 @@
   width: 4rem;
   border-radius: 50%;
   border: 1px solid #f0f;
-  margin-right: 3.5rem;
+  margin-right: 3.75rem;
 }
 
 .detail__information__highlight__text{
-  @extend %description-16;
+  @extend %description-18;
+
+  overflow: hidden;
+
+  span {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+  }
 }
 
 .detail__information__list{
-
+  margin-top: 4rem;
 }
 
 .detail__information__item{
-  align-items: center;
   display: flex;
 
   &:not(:first-child) {
@@ -85,10 +93,26 @@
 
 .detail__information__item__title{
   @extend %description-12;
+
+  line-height: 1;
+  margin-bottom: auto;
+  overflow: hidden;
+  padding-right: 2.5rem;
+  width: 15rem;
 }
 
 .detail__information__item__description{
-  @extend %description-16;
+  @extend %description-18;
+
+  letter-spacing: 0.03rem;
+  max-width: 44rem;
+
+  span {
+    display: inline-block;
+    line-height: 1;
+    overflow: hidden;
+    vertical-align: top;
+  }
 }
 
 .detail__information__link{
