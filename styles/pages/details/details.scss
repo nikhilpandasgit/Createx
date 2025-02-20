@@ -5,7 +5,8 @@
   @extend %cover;
   @extend %center;
 
-  background: $color-contessa;
+  background: $color-quicksand;
+  color: $color-quarter-spanish-white;
 }
 
 .detail__wrapper{
@@ -63,12 +64,12 @@
   height: 4rem;
   width: 4rem;
   border-radius: 50%;
-  border: 1px solid #f0f;
+  border: 1px solid currentColor;
   margin-right: 3.75rem;
 }
 
 .detail__information__highlight__text{
-  @extend %description-18;
+  @extend %description-14;
 
   overflow: hidden;
 
@@ -87,7 +88,7 @@
   display: flex;
 
   &:not(:first-child) {
-    margin-top: 4rem;
+    margin-top: 7rem;
   }
 }
 
@@ -97,12 +98,12 @@
   line-height: 1;
   margin-bottom: auto;
   overflow: hidden;
+  width: 7.5rem;
   padding-right: 2.5rem;
-  width: 15rem;
 }
 
 .detail__information__item__description{
-  @extend %description-18;
+  @extend %description-14;
 
   letter-spacing: 0.03rem;
   max-width: 44rem;
@@ -118,5 +119,8 @@
 .detail__information__link{
   @extend %title-30;
 
-  margin-top: 3rem;
+  display: inline-block;
+  padding-top: 5rem;
+  color: $color-quarter-spanish-white;
+  text-decoration: none;
 }

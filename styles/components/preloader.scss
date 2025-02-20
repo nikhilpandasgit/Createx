@@ -4,8 +4,8 @@
 .preloader{
   @extend %cover;
   @extend %center;
-  
-  font-family: $font-george-x;
+
+  color: $color-quarter-spanish-white;
   background: $color-contessa;
   text-align: center;
   display: none;
@@ -15,6 +15,7 @@
   @extend %title-53;
 
   max-width: 66rem;
+  line-height: 1;
 }
 
 .preloader__number{
