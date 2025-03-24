@@ -1,7 +1,17 @@
+@use '../../globals.scss' as *;
+@use '../../shared.scss' as *;
+
 .about{
+  background: $color-cadet-blue;
+  color: $color-bright-gray;
+
 }
 .about__wrapper{
- 
+
 }
 .about__title{
+  @extend %title-100;
+  max-width: 107.4rem;
+  text-align: center;
+  margin: auto;
 }
